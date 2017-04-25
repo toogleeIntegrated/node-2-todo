@@ -9,6 +9,8 @@ var {User} = require('./models/user.js');
 
 // set app
 var app = express();
+// Set port environment to Heroku or localhost
+const port = process.env.PORT || 3000;
 // Setting the Middleware
 app.use(bodyParser.json());
 
@@ -51,8 +53,8 @@ app.get('/todos/:id', (req, res) => {
 
 
 //starting the APP
-app.listen(3000, () => {
-  console.log('Started on port 3000');
+app.listen(port, () => {
+  console.log(`Started at port: ${port}`);
 });
 
 module.exports = {app};
